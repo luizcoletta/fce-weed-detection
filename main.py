@@ -105,7 +105,7 @@ def prediction(model, result_folder, num_classes, test_img_path, test_ann_path):
 
     if not os.path.isdir(test_img_path) or not os.path.isdir(test_ann_path):
         print('tem q gerar pastas a partir de raw!')
-        extract_objects_from_images('data/val_images/raw/teste_final', 'teste')
+        extract_objects_from_images(test_img_path[:-12] + 'raw', 'teste')
 
     files_list = [f for f in listdir(test_img_path) if isfile(join(test_img_path, f))]
 

@@ -5,7 +5,7 @@ from os import listdir
 from os.path import isfile, join
 import os
 import os.path
-from PIL.Image import Image
+from PIL import Image
 from PIL.ImageFile import ImageFile
 from rembg.bg import remove
 import io
@@ -22,7 +22,7 @@ def extract_objects_from_images(images_path, dataset_name):
         os.mkdir(images_path + '/' + dataset_name)
 
     # Uncomment the following line if working with trucated image formats (ex. JPEG / JPG)
-    ImageFile.LOAD_TRUNCATED_IMAGES = True
+    ImageFile.LOAD_TRUNCATED_IMAGES = False
 
     for file in files_list:
         images_file = images_path + '/' + file
@@ -39,15 +39,15 @@ def extract_objects_from_images(images_path, dataset_name):
         img_black.paste(img, mask=img)
         img_black.save(images_path + '/' + dataset_name + '/' + file)
 
-        areas_lst, img = squares_in_image(images_path + '/' + dataset_name + '/' + file)
+        #areas_lst, img = squares_in_image(images_path + '/' + dataset_name + '/' + file)
 
-        if not os.path.isdir(images_path + '/' + dataset_name + '/objs'):
-            os.mkdir(images_path + '/' + dataset_name + '/objs')
+        #if not os.path.isdir(images_path + '/' + dataset_name + '/objs'):
+        #    os.mkdir(images_path + '/' + dataset_name + '/objs')
 
-        img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-        img.save(images_path + '/' + dataset_name + '/sqr-' + file)
+        #img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+        #img.save(images_path + '/' + dataset_name + '/sqr-' + file)
 
-        img = cv2.imread(images_path + '/' + dataset_name + '/sqr-' + file, cv2.COLOR_BGR2RGB)
+        #img = cv2.imread(images_path + '/' + dataset_name + '/sqr-' + file, cv2.COLOR_BGR2RGB)
 
         img = cv2.imread(images_path + '/' + dataset_name + '/' + file, cv2.COLOR_BGR2RGB)
         img_1 = img[:, :, 1]
@@ -57,7 +57,7 @@ def extract_objects_from_images(images_path, dataset_name):
         if not os.path.isdir(images_path + '/' + dataset_name + '/annotations'):
             os.mkdir(images_path + '/' + dataset_name + '/annotations')
 
-        save_file(images_path + '/' + dataset_name + '/annotations/', file, 'csv', mat, '%.1f')
+        #save_file(images_path + '/' + dataset_name + '/annotations/', file, 'csv', mat, '%.1f')
 
         im = Image.fromarray(mat)
         im.save(images_path + '/' + dataset_name + '/annotations/' + file)
