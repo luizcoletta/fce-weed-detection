@@ -1,0 +1,17 @@
+numpy
+scipy
+pandas
+matplotlib
+seaborn
+plotly
+sklearn
+opencv-python
+Pillow
+tensorflow
+keras
+six
+argparse
+scikit-build
+cmake
+rembg
+git+https://github.com/luizfsc/ext-semantic-segmentation
