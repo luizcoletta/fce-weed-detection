@@ -14,4 +14,5 @@ argparse
 scikit-build
 cmake
 rembg
+imgaug
 git+https://github.com/luizfsc/ext-semantic-segmentation

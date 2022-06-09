@@ -10,8 +10,8 @@ import cv2 # OpenCV (Open Source Computer Vision Library) is an open source comp
 from PIL import Image
 from keras_segmentation.metrics import get_iou
 import os
-import imgaug as ia
-import imgaug.augmenters as iaa
+#import imgaug as ia
+#import imgaug.augmenters as iaa
 import os.path
 
 
@@ -295,7 +295,7 @@ def iou_metric(gt, pred, num_classes):
     return [iou.tolist(), [m_iou, v_iou, d_iou]]
 
 ### https://github.com/aleju/imgaug
-def data_augmentation(img_path, seg_path):
+'''def data_augmentation(img_path, seg_path):
 
     seq = iaa.Sequential([
         iaa.Crop(px=(0, 16)),  # crop images from each side by 0 to 16px (randomly chosen)
@@ -313,7 +313,7 @@ def data_augmentation(img_path, seg_path):
     segmap_aug = aug_det.augment_segmentation_maps(segmap)
     segmap_aug = segmap_aug.get_arr_int()
 
-    return image_aug, segmap_aug
+    return image_aug, segmap_aug'''
 
 
 def closing_points_image(img, kernel, iter):

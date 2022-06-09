@@ -32,6 +32,7 @@ def main():
                      'scikit-build',    # skbuild
                      'cmake',
                      'rembg',           # https://github.com/danielgatis/rembg
+                     'imgaug',
                      'git+https://github.com/luizfsc/ext-semantic-segmentation']  # keras_segmentation (https://github.com/divamgupta/image-segmentation-keras)
     install_required_packages(install_requires)
 
