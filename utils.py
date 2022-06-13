@@ -10,10 +10,9 @@ import cv2 # OpenCV (Open Source Computer Vision Library) is an open source comp
 from PIL import Image
 from keras_segmentation.metrics import get_iou
 import os
-#import imgaug as ia
-#import imgaug.augmenters as iaa
+import imgaug as ia
+import imgaug.augmenters as iaa
 import os.path
-
 
 def create_dir(filePath):
     if not os.path.isdir(filePath):
@@ -414,14 +413,14 @@ def squares_in_image(img):
 
     #img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-    return areas_lst, img
+    return areas_lst, img 
 
-'''im_col = cv2.imread("results/typification/" + result_desc + "_colored_" + f)
-   im_col[np.where(im_col == 211)] = 255
-   img_hsv = cv2.cvtColor(im_col, cv2.COLOR_RGB2HSV)
-   lab = cv2.cvtColor(im_col, cv2.COLOR_BGR2LAB)
-   l, a, b = cv2.split(lab)
-   clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
-   cl = clahe.apply(l)
-   limg = cv2.merge((cl, a, b))
-   final = cv2.cvtColor(limg, cv2.COLOR_LAB2BGR)'''
+im_col = cv2.imread("results/typification/" + ""result_desc" + "_colored_" + "f)
+im_col [np.where(im_col == 211)] = 255
+img_hsv = cv2.cvtColor(im_col, cv2.COLOR_RGB2HSV)
+lab = cv2.cvtColor(im_col, cv2.COLOR_BGR2LAB)
+l, a, b = cv2.split(lab)
+clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
+cl = clahe.apply(l)
+limg = cv2.merge((cl, a, b))
+final = cv2.cvtColor(limg, cv2.COLOR_LAB2BGR)
