@@ -107,6 +107,8 @@ def prediction(model, result_folder, num_classes, test_img_path, test_ann_path):
         print('tem q gerar pastas a partir de raw!')
         extract_objects_from_images(test_img_path[:-12] + 'raw', 'teste')
 
+    print("FOI! PASSOU!!!")
+
     files_list = [f for f in listdir(test_img_path) if isfile(join(test_img_path, f))]
 
     ### https://divamgupta.com/image-segmentation/2019/06/06/deep-learning-semantic-segmentation-keras.html
