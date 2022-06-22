@@ -18,6 +18,7 @@ def extract_objects_from_images(images_path, dataset_name):
 
     files_list = [f for f in listdir(images_path) if isfile(join(images_path, f))]
 
+    # se neste caminho nao tiver a data/val_images/gabarito_v1/images_test vc cria
     if not os.path.isdir(images_path + '/' + dataset_name):
         os.mkdir(images_path + '/' + dataset_name)
 
@@ -37,7 +38,9 @@ def extract_objects_from_images(images_path, dataset_name):
         img = Image.open(io.BytesIO(result)).convert("RGBA")
         img_black = Image.new("RGB", img.size, "BLACK")
         img_black.paste(img, mask=img)
-        img_black.save(images_path + '/' + dataset_name + '/' + file)
+
+                       #data/val_images/gabarito_v1/images_test
+        img_black.save(images_path[:-4] + '/images_test/' + file)
 
         #areas_lst, img = squares_in_image(images_path + '/' + dataset_name + '/' + file)
 
@@ -49,15 +52,19 @@ def extract_objects_from_images(images_path, dataset_name):
 
         #img = cv2.imread(images_path + '/' + dataset_name + '/sqr-' + file, cv2.COLOR_BGR2RGB)
 
+                        # data/val_images/gabarito_v1/images_test
         img = cv2.imread(images_path + '/' + dataset_name + '/' + file, cv2.COLOR_BGR2RGB)
         img_1 = img[:, :, 1]
         mat = img_1
         mat[mat > 0] = int(file[-5:-4])
 
+        # se neste caminho nao tiver a data/val_images/gabarito_v1/annotations_test vc cria
         if not os.path.isdir(images_path + '/' + dataset_name + '/annotations'):
             os.mkdir(images_path + '/' + dataset_name + '/annotations')
 
         #save_file(images_path + '/' + dataset_name + '/annotations/', file, 'csv', mat, '%.1f')
 
         im = Image.fromarray(mat)
+
+        #data/val_images/gabarito_v1/annotations_test
         im.save(images_path + '/' + dataset_name + '/annotations/' + file)
