@@ -381,10 +381,10 @@ def squares_in_image(img):
     min_size_sqrs = 2000 # 2000
     max_size_sqrs = 8000000 # 7000
 
-    if isinstance(img, str):
+    '''if isinstance(img, str):
         img = resize_image(cv2.imread(img), (720, 960))
     else:
-        img = resize_image(img, (720, 960))
+        img = resize_image(img, (720, 960))'''
 
     # img = resize_image(cv2.imread('data/preprocessing/2.jpg'), (806, 1075))
     # img = resize_image(cv2.imread('data/preprocessing/3.jpg'), (806, 1075))

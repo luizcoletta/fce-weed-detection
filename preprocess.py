@@ -43,13 +43,6 @@ def extract_objects_from_images(images_path):
                        #data/val_images/gabarito_v1/images_test
         img_black.save(images_path + '/images_test/' + file)
 
-        #areas_lst, img = squares_in_image(images_path + '/' + dataset_name + '/' + file)
-
-        #if not os.path.isdir(images_path + '/' + dataset_name + '/objs'):
-        #    os.mkdir(images_path + '/' + dataset_name + '/objs')
-
-        #img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-        #img.save(images_path + '/' + dataset_name + '/sqr-' + file)
 
         #img = cv2.imread(images_path + '/' + dataset_name + '/sqr-' + file, cv2.COLOR_BGR2RGB)
 

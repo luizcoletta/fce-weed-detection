@@ -15,6 +15,7 @@ from keras_segmentation.models.unet import unet, vgg_unet, mobilenet_unet
 from keras_segmentation.models.segnet import segnet
 from utils import color_list, save_file, roi_extraction, matrix2augimage, iou_metric, create_dir
 from preprocess import extract_objects_from_images
+from utils import save_file, squares_in_image
 
 
 def train_model(model_settings, dataset_name, num_classes, epochs):
@@ -103,13 +104,8 @@ def prediction(model, result_folder, num_classes, test_img_path, test_ann_path):
     create_dir('results/labels')
     create_dir('results/typification')
 
-    extract_objects_from_images(test_img_path[:-12])
-
     if not os.path.isdir(test_img_path) or not os.path.isdir(test_ann_path):
-        print('tem q gerar pastas a partir de raw!')
-    #extract_objects_from_images(test_img_path[:-12] + 'raw')
-
-    print("FOI! PASSOU!!!")
+        extract_objects_from_images(test_img_path[:-12])
 
     files_list = [f for f in listdir(test_img_path) if isfile(join(test_img_path, f))]
 
@@ -138,6 +134,18 @@ def prediction(model, result_folder, num_classes, test_img_path, test_ann_path):
             inp=test_img, colors=color_list(num_classes),
             out_fname=output_path,
         )
+        #### depois daqui ele já criou uma certa imagem colorida dentro da pasta labels
+
+        # --------- separar objetos ---------------------
+        #areas_lst, img = squares_in_image(images_path + '/' + dataset_name + '/' + file)
+
+        #if not os.path.isdir(images_path + '/' + dataset_name + '/objs'):
+        #    os.mkdir(images_path + '/' + dataset_name + '/objs')
+
+        # img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+        # img.save(images_path + '/' + dataset_name + '/sqr-' + file)
+        # ----------------------------------------------------
+
 
         # values, counts = np.unique(out, return_counts=True)
         # ind = np.argmax(counts[1:])
@@ -238,4 +246,12 @@ if __name__ == "__main__":
     sel_model = 0
 
     main(num_classes, training_set_name, target_set_name, validation_task, use_trained_model, epochs, sel_model)
+
+    #areas_lst, img = squares_in_image('/results/labels/gato.jpg')
+
+    # if not os.path.isdir(images_path + '/' + dataset_name + '/objs'):
+    #    os.mkdir(images_path + '/' + dataset_name + '/objs')
+
+    # img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    # img.save(images_path + '/' + dataset_name + '/sqr-' + file)
 
