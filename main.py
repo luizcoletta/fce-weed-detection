@@ -103,11 +103,11 @@ def prediction(model, result_folder, num_classes, test_img_path, test_ann_path):
     create_dir('results/labels')
     create_dir('results/typification')
 
-    #extract_objects_from_images(test_img_path[:-12] + 'raw', 'teste')
+    extract_objects_from_images(test_img_path[:-12])
 
     if not os.path.isdir(test_img_path) or not os.path.isdir(test_ann_path):
         print('tem q gerar pastas a partir de raw!')
-        extract_objects_from_images(test_img_path[:-12] + 'raw', 'teste')
+    #extract_objects_from_images(test_img_path[:-12] + 'raw')
 
     print("FOI! PASSOU!!!")
 
