@@ -47,6 +47,7 @@ if (install_pkg):
                      ('skbuild', 'scikit-build'),
                      ('cmake', 'cmake'),
                      ('pylab', 'pylab'),
+                     ('rembg', 'rembg'),
                      ('keras_segmentation', 'git+https://github.com/luizfsc/ext-semantic-segmentation')]
     install_all_packages(required_pkg_list)
 

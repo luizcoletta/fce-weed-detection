@@ -235,7 +235,7 @@ def main(num_classes, training_set_name, target_set_name, validation_task, use_t
 
 if __name__ == "__main__":
 
-    use_trained_model = True
+    use_trained_model = False
     training_set_name = 'obj_typification_v1'
 
     target_set_name = 'gabarito_v1' #'obj_typification_v1'  # used for both validation or test phase
