@@ -199,8 +199,7 @@ def prediction(model, result_folder, num_classes, test_img_path, test_ann_path):
         df_results = pd.concat([df_results, pd.DataFrame(iou_classes_summary_list)], axis=1)
         df_results = pd.concat([df_results, pd.DataFrame(iou_object_list)], axis=1)
         df_results = pd.concat([df_results, pd.DataFrame(iou_object_summary_list)], axis=1)
-        df_results.columns = ['IMG_ID', 'Class0', 'Class1', 'Class2', 'Class3', 'Class4', 'Class5',
-                              'Class_Mean', 'Class_Var', 'Class_Std', 'Background', 'Object',
+        df_results.columns = ['IMG_ID'] + ['Class' + str(i) for i in range(num_classes)] + ['Class_Mean', 'Class_Var', 'Class_Std', 'Background', 'Object',
                               'Obj_Mean', 'Obj_Var', 'Obj_Std']
     return df_results
 
@@ -235,13 +234,13 @@ def main(num_classes, training_set_name, target_set_name, validation_task, use_t
 
 if __name__ == "__main__":
 
-    use_trained_model = False
-    training_set_name = 'obj_typification_v1'
+    use_trained_model = True
+    training_set_name = 'amargoso_v1' #'obj_typification_v1'
 
-    target_set_name = 'gabarito_v1' #'obj_typification_v1'  # used for both validation or test phase
+    target_set_name = 'amargoso_v1' #'gabarito_v1' #'obj_typification_v1'  # used for both validation or test phase
     validation_task = True
 
-    num_classes = 6
+    num_classes = 3 #6
     epochs = 10
     sel_model = 0
 

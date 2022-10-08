@@ -22,12 +22,24 @@ def create_dir(filePath):
 def color_list(num_elements):
     random.seed(0)
     clist = [(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)) for _ in range(num_elements)]
-    clist[0] = (255, 255, 255)  # BACKGROUND - BGR BRANCO
-    clist[1] = (0, 0, 255)      # CANA - BGR VERMELHO
-    clist[2] = (0, 255, 255)    # ESTILHAÇO - BGR AMARELO
-    clist[3] = (255, 0, 255)    # RAIZ - BGR MAGENTA
-    clist[4] = (0, 255, 0)      # TOCO - BGR VERDE
-    clist[5] = (255, 0, 0)      # TOLETE - BGR AZUL
+
+    '''lst_color = [(255, 255, 255),  # BACKGROUND - BGR BRANCO
+                 (0, 0, 255),      # CANA - BGR VERMELHO
+                 (0, 255, 255),    # ESTILHAÇO - BGR AMARELO
+                 (255, 0, 255),    # RAIZ - BGR MAGENTA
+                 (0, 255, 0),      # TOCO - BGR VERDE
+                 (255, 0, 0)]      # TOLETE - BGR AZUL'''
+
+    lst_color = [(255, 255, 255),  # BACKGROUND - BGR BRANCO
+                 (0, 255, 0),      # GRAMINEA - BGR VERDE
+                 (0, 0, 255),      # TOUCEIRA - BGR VERMELHO
+                 (255, 0, 255),    #  - BGR MAGENTA
+                 (0, 255, 0),      #  - BGR VERDE
+                 (255, 0, 0)]      #  - BGR AZUL
+
+    for i in range(num_elements):
+        clist[i] = lst_color[i]
+
     return clist
 
 
